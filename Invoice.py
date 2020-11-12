@@ -43,3 +43,21 @@ class Invoice:
                 continue
             else:
                 return userInput
+
+    def productsList(self, products):
+        productList = ""
+        for k in products:
+            productList = productList + " " + k
+        return productList
+
+    def checkInStock(self, products):
+        inStock = None
+        productList = ""
+        for k, v in products.items():
+            inStock = v["instock"]
+            if inStock:
+                productList = productList + " " + k + ": In Stock"
+            else:
+                productList = productList + " " + k + ": Not in Stock"
+
+        return productList
